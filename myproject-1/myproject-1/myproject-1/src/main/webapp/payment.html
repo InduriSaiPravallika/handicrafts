@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Tribal Handicrafts Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f1f1f1;
+        }
+
+        .header {
+            background-color: #2874f0;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            margin: auto;
+            max-width: 800px;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section h3 {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .payment-option {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .payment-option:hover {
+            background-color: #f9f9f9;
+        }
+
+        .payment-option input {
+            margin-right: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            width: 100%;
+            padding: 12px;
+            background-color: #2874f0;
+            color: white;
+            text-align: center;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #1e5ac9;
+        }
+
+        .cart-summary {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .cart-summary div {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .header {
+                font-size: 20px;
+            }
+
+            .btn {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Secure Payment</div>
+
+    <div class="container">
+        <div class="section">
+            <h3>Select Payment Method</h3>
+
+            <div class="payment-option">
+                <input type="radio" name="payment" id="cash-on-delivery" value="cod">
+                <label for="cash-on-delivery">Cash on Delivery</label>
+            </div>
+
+            <div class="payment-option">
+                <input type="radio" name="payment" id="wallet" value="wallet">
+                <label for="wallet">Wallet (e.g., Paytm, PhonePe)</label>
+            </div>
+
+            <div class="payment-option">
+                <input type="radio" name="payment" id="credit-card" value="credit">
+                <label for="credit-card">Credit Card</label>
+            </div>
+
+            <div class="payment-option">
+                <input type="radio" name="payment" id="debit-card" value="debit">
+                <label for="debit-card">Debit Card</label>
+            </div>
+
+            <div class="payment-option">
+                <input type="radio" name="payment" id="pay-later" value="pay-later">
+                <label for="pay-later">Pay Later</label>
+            </div>
+
+            <div class="payment-option">
+                <input type="radio" name="payment" id="net-banking" value="net-banking">
+                <label for="net-banking">Net Banking</label>
+            </div>
+
+            <div class="payment-option">
+                <input type="radio" name="payment" id="upi" value="upi">
+                <label for="upi">UPI</label>
+            </div>
+
+            <div class="payment-option">
+                <input type="radio" name="payment" id="qr-scan" value="qr">
+                <label for="qr-scan">Scan QR Code</label>
+            </div>
+        </div>
+
+        <div class="section cart-summary">
+            <h3>Cart Summary</h3>
+            <div>
+                <span>Item Total</span>
+                <span>$123.00</span>
+            </div>
+            <div>
+                <span>Delivery Fee</span>
+                <span>$5.00</span>
+            </div>
+            <div style="font-weight: bold;">
+                <span>Total Amount</span>
+                <span>$128.00</span>
+            </div>
+        </div>
+
+        <button class="btn">Place Order</button>
+    </div>
+</body>
+</html>

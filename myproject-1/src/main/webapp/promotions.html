@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Promotions - Handcrafted Tribal Gifts</title>
+  <!-- Including CSS libraries like Bootstrap -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+
+  <style>
+    /* Custom CSS for the promotions section */
+    .promotion-header {
+      background-color: #6a0dad;
+      color: white;
+      padding: 10px 0;
+      text-align: center;
+      font-size: 1.6rem;
+    }
+
+    .promotion-section {
+      background: linear-gradient(to right, #ffdd57, #ffc107);
+      padding: 20px 0;
+    }
+
+    .sale-banner img {
+      max-height: 250px;
+      object-fit: cover;
+    }
+
+    .container-btn {
+      background-color: yellow;
+      padding: 10px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin: 20px 0;
+      font-weight: bold;
+      border-radius: 10px;
+    }
+
+    .footer-bar {
+      margin-top: 30px;
+      border: 1px solid #aaa;
+      padding: 10px 0;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    /* Product CSS for dynamically loading products */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 1em;
+      text-align: center;
+    }
+
+    .banner {
+      background-color: #5cb85c;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 1.5em;
+      margin: 20px 0;
+    }
+
+    .product-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .product {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin: 10px;
+      padding: 10px;
+      width: 200px;
+      text-align: center;
+    }
+
+    .product img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    .product h2 {
+      font-size: 1.2em;
+      margin: 0.5em 0;
+    }
+
+    .product p {
+      color: #555;
+    }
+
+    .price {
+      font-weight: bold;
+      color: #333;
+    }
+
+    .discount {
+      color: #d9534f;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+
+    .add-to-cart:hover {
+      background-color: #4cae4c;
+    }
+
+    .view-cart {
+      margin: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Static Promotions Header -->
+  <div class="promotion-header">FLAT ₹500 OFF - LIVE NOW</div>
+
+  <!-- Main Promotion Banner Section -->
+  <div class="promotion-section text-center">
+    <div class="container">
+      <div class="sale-banner">
+        <img src="prom.jpeg" alt="Sale Banner Example" />
+      </div>
+      <div class="container-btn">
+        <button class="btn btn-dark">Shop Now</button>
+        <button class="btn btn-dark">On App Only</button>
+      </div>
+      <div class="container text-dark">
+        <h2>50% to 90% OFF Price Crash on Top Brands</h2>
+      </div>
+    </div>
+  </div>
+
+  <!-- Call to Action Section -->
+  <div class="container text-center">
+    <div class="container-btn">
+      <button class="btn btn-primary">Easy Exchange & Returns</button>
+      <button class="btn btn-success">Free Shipping</button>
+      <button class="btn btn-info">100% Genuine Products</button>
+    </div>
+  </div>
+
+  <!-- Dynamic Promotions Section -->
+  <div class="view-cart">
+    <a href="cart.html">View Cart</a>
+  </div>
+  <main>
+    <div class="product-container" id="product-container">
+      <!-- Promotional product items will be dynamically added here -->
+    </div>
+  </main>
+
+  <!-- Footer Section -->
+  <div class="footer-bar">
+    <div class="container">
+     
+  </div>
+
+  <!-- Including JS Libraries -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    const promotionalProducts = [
+      {
+        name: "Handcrafted Pot",
+        originalPrice: 25.0,
+        discountPrice: 20.0,
+        image: "hand.jpg",
+        description: "A beautifully handcrafted pot made from natural clay."
+      },
+      {
+        name: "Wooden Sculpture",
+        originalPrice: 50.0,
+        discountPrice: 40.0,
+        image: "wooden.jpg",
+        description: "A stunning wooden sculpture carved by local artisans."
+      },
+      {
+        name: "Traditional Rug",
+        originalPrice: 100.0,
+        discountPrice: 80.0,
+        image: "rugg.jpg",
+        description: "A handwoven rug that showcases traditional patterns."
+      }
+    ];
+
+    function displayPromotionalProducts() {
+      const productContainer = document.getElementById('product-container');
+      promotionalProducts.forEach(product => {
+        const productDiv = document.createElement('div');
+        productDiv.className = 'product';
+        productDiv.innerHTML = `
+          <img src="${product.image}" alt="${product.name}">
+          <h2>${product.name}</h2>
+          <p>${product.description}</p>
+          <p class="price">Original: <span style="text-decoration: line-through;">$${product.originalPrice.toFixed(2)}</span></p>
+          <p class="discount">Now: $${product.discountPrice.toFixed(2)}</p>
+          <button class="add-to-cart" onclick="addToCart('${product.name}', ${product.discountPrice}, '${product.image}')">Add to Cart</button>
+        `;
+        productContainer.appendChild(productDiv);
+      });
+    }
+
+    function addToCart(name, price, image) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const existingProduct = cart.find(item => item.name === name);
+
+      if (existingProduct) {
+        existingProduct.quantity++;
+      } else {
+        cart.push({ name, price, quantity: 1, image });
+      }
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(`${name} has been added to your cart.`);
+    }
+
+    displayPromotionalProducts();
+  </script>
+</body>
+</html>
